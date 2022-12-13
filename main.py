@@ -1,10 +1,9 @@
-""" Вар. 2 """
 import task_1
 import task_2
 import task_3_4
 
-m: str = 'orange'
-h: hex = '1b4c9133da73a711322404314402765ab0d23fd362a167d6f0c65bb215113d94'
+m: str = 'precision'
+h: hex = 'e2794d8f12719281eff5601251c8a680'
 
 
 def main():
