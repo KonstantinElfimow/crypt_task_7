@@ -7,9 +7,13 @@ hash_algorythm: set = {'sha3_512', 'sha384', 'md5', 'sha256', 'sha3_256', 'sha3_
 
 
 def define_hash_algorythm(*, m: bytes, h: hex) -> str:
-    for a in hash_algorythm:
+    for a in hashlib.algorithms_available:
         temp = hashlib.new(a)
         temp.update(m)
-        if temp.hexdigest() == h:
-            return a
-    return None
+        if a == 'shake_256' or a == 'shake_128':
+            for i in range(256):
+                if temp.hexdigest(i) == h:
+                    return a
+        else:
+            if temp.hexdigest() == h:
+                return a
