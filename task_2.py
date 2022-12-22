@@ -14,5 +14,5 @@ key_len: int = 32  # Размер в байтах
 
 def key_calculation(*, hash_name: str, password: bytes) -> bytes:
     now = datetime.datetime.now()
-    salt: bytes = bytes(now.strftime('%Y/%m/%d'), 'utf-8')
+    salt: bytes = bytes(now.strftime('%Y-%m-%d'), 'utf-8')
     return hashlib.pbkdf2_hmac(hash_name=hash_name, password=password, salt=salt, iterations=iterations, dklen=key_len)
